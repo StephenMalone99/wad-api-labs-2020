@@ -22,18 +22,18 @@ const errHandler = (err, req, res, next) => {
 
 const app = express();
 
-// app.use(session({
-//   secret: 'ilikecake',
-//   resave: true,
-//   saveUninitialized: true
-// }));
+app.use(session({
+  secret: 'ilikecake',
+  resave: true,
+  saveUninitialized: true
+}));
 
 
 const port = process.env.PORT;
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use('/api/movies',  moviesRouter);
+app.use('/api/movies', authenticate, moviesRouter);
 app.use('/api/users', usersRouter);
 app.use('api/genres', genresRouter);
 app.use(errHandler);
