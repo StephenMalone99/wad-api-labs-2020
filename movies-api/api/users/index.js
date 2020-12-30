@@ -64,10 +64,18 @@ router.post('/:userName/favourites', async (req, res, next) => {
   const userName = req.params.userName;
   const movie = await movieModel.findByMovieDBId(newFavourite);
   const user = await User.findByUserName(userName);
+  const duplicatefavourites = user.favourites.find(movie.id)
+  if (duplicatefavourites) {
+    req.status.send("Duplicate Exists")
+  }
+  else {
   await user.favourites.push(movie._id);
   await user.save(); 
   res.status(201).json(user); 
+  }
+  
 });
+
 
 
 router.get('/:userName/favourites', (req, res, next) => {
