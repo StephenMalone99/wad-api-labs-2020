@@ -14,6 +14,27 @@ export const PublicPage = () => {
         </div>
     </>
 }
+
+export const Upcoming = () => {
+    const context = useContext(MoviesContext);
+    return <>
+        <h2>Upcoming Movies </h2>
+        <div>
+            {context.upcoming.map(upcoming => { return <>{upcoming.id},{upcoming.title},<br /></> })}
+        </div>
+    </>
+}
+
+export const TopRatedMovies = () => {
+    const context = useContext(MoviesContext);
+    return <>
+        <h2>Top Rated Movies </h2>
+        <div>
+            {context.toprated.map(toprated => { return <>{toprated.id},{toprated.title}<br /></> })}
+        </div>
+    </>
+}
+
  export const Profile = () => {
     return <h2>My Profile </h2>
 }
