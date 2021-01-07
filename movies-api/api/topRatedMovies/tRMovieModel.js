@@ -2,8 +2,7 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-
-const MovieSchema = new Schema({
+const TopRatedMovieSchema = new Schema({
   adult: { type: Boolean },
   id: { type: Number, required: true, unique: true },
   poster_path: { type: String },
@@ -31,18 +30,8 @@ const MovieSchema = new Schema({
   tagline: { type: String }
 });
 
-MovieSchema.statics.findByMovieDBId = function (id) {
+TopRatedMovieSchema.statics.findByMovieDBId = function (id) {
   return this.findOne({ id: id });
 };
 
-MovieSchema.statics.getPage = function () {
-  return this.find().limit(20);
-};
-
-MovieSchema.statics.getUpComing = function () {
-  return this.find().sort({"release_date":'descending'}).limit(20);
-};
-
-export default mongoose.model('Movies', MovieSchema);
-
-
+export default mongoose.model('TopRated', TopRatedMovieSchema);

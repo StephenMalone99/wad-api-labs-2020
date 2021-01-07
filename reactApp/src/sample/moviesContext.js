@@ -7,7 +7,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "load":
       return { movies: action.payload.movies, upcoming: [...state.upcoming], toprated: [...state.toprated] };
-    case "load-upcoming":	    case "load-upcoming":
+    case "load-upcoming":	
       return { upcoming: action.payload.movies, movies: [...state.movies], toprated: [...state.toprated]};
     case "load-toprated":
       return { toprated: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming ]};
