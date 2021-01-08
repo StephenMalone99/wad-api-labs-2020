@@ -2,9 +2,10 @@ import './db';
 import dotenv from 'dotenv';
 import express from 'express';
 import moviesRouter from './api/movies';
-import topRatedMoviesRouter from './api/topRatedMovies'
+import topRatedMoviesRouter from './api/topRatedMovies';
+import upcomingMovieRouter from './api/upcomingMovies';
 import bodyParser from 'body-parser';
-import {loadUsers, loadMovies, loadTopRated} from './seedData';
+import {loadUsers, loadMovies, loadTopRated, loadUpcoming} from './seedData';
 import usersRouter from './api/users';
 import genresRouter from './api/genres'
 import session from 'express-session';
@@ -36,7 +37,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(passport.initialize());
 app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
-app.use('/api/upcoming', moviesRouter);
+app.use('/api/upcoming', passport.authenticate('jwt', {session: false}), upcomingMovieRouter);
 app.use('/api/toprated', passport.authenticate('jwt', {session: false}), topRatedMoviesRouter);
 app.use('/api/users', usersRouter);
 app.use('api/genres', genresRouter);
@@ -51,5 +52,6 @@ if (process.env.SEED_DB) {
   loadUsers();
   loadMovies();
   loadTopRated();
+  loadUpcoming();
 }
 
