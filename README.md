@@ -17,7 +17,9 @@ Name: Stephen Malone
 Download the zip version of my API found at https://github.com/StephenMalone99/wad-api-labs-2020
 Download the zip version of my Assignment 1 react app found at https://github.com/StephenMalone99/wad2-moviesApp
 
-My assignment one is appearing as a submodule and when you download this project it appears as empty. I don't know how to fix this, you have to make the following changes to the react app to get it to work with the API once you download it.
+My assignment one is appearing as a submodule and when you download this project it appears as empty. 
+I don't know how to fix this, you have to make the following changes to the react app to get it to work 
+with the API once you download it.
 
 Add the following to /api/tmdb-api.js and comment out the previous calls.
 
@@ -60,7 +62,8 @@ followed by installation
 ```bat
 for the API
 Download MongoDB from https://www.mongodb.com/try/download/community
-Once that is completed, unzip the API, naivgate to the root folder and then run 'npm install'. Once it's completed add the .env file as below and use npm start.
+Once that is completed, unzip the API, naivgate to the root folder and then run 'npm install'. 
+Once it's completed add the .env file as below and use npm start.
 
 for the React APP
 Unzip it, run npm install and then once it is finished run npm start.
@@ -86,13 +89,15 @@ secret=ilikecake
 Give an overview of your web API design, perhaps similar to the following: 
 
 |  |  GET | POST | PUT | DELETE
-| /api/movies |Gets a list of movies | N/A | N/A | N/A |
-| /api/movies/{movieid} | Get a Movie | N/A | N/A | N/A |
-| /api/users?action=register| N/A | Register as a user | N/A | N/A |
-| /api/users | Gets a list of users | Log in as a user | N/A | N/A |
-| /api/users/{username}/favourites | Gets favourite movies for a specific user | Adds a favourite movie to users account | N/A | N/A |
-| /api/toprated | Gets a list of top rated movies| N/A | N/A | N/A |
-| /api/upcoming | Gets a list of upcoming movies | N/A | N/A | N/A |
+| -- | -- | -- | -- | -- 
+| /api/movies | Gets a list of movies | N/A | N/A
+| /api/movies/{movieid} | Get a Movie | N/A | N/A | N/A
+| /api/users?action=register| N/A | Register as a user | N/A | N/A
+| /api/users | Gets a list of users | Log in as a user | N/A | N/A
+| /api/users/{username}/favourites | Gets favourite movies for a user | Adds a favourite | N/A | N/A
+| /api/toprated | Gets a list of top rated movies| N/A | N/A | N/A
+| /api/upcoming | Gets a list of upcoming movies | N/A | N/A | N/A
+| ... | ... | ... | ... | ...
 
 
 ## Security and Authentication
